@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Liste terminer {% endblock %}
+
+{% block content %}
+
+    <h3> Tâches en cours ou terminées </h3>
+
+    <ul>
+    	{% for tach in taches %}
+
+    	<li>
+    		<h3>
+    			
+    			{% if tach.task_closed %}
+    			<span class="task_closed">
+    				{{tach.name}}
+    			</span>
+    			{% else %}
+    			{{tach.name}}
+    			{% endif %}
+    		</h3>
+    		<h4>
+    			<p>
+    				Description : {{tach.description}}
+    			</p>
+    			<p>
+    				Date de rendu: {{tach.colored_due_date}}
+    			</p>
+    			<p>
+    				Date de debut: {{tach.schedule_date}}
+    			</p>
+    		</h4>
+
+    	</li>
+    	{% endfor %}
+    </ul>
+
+
+{% endblock %}
